@@ -15922,7 +15922,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="R4" library="rcl" deviceset="R-US_" device="R1206" value="150ohm"/>
-<part name="C1" library="SparkFun" deviceset="CAP_POL" device="7343"/>
+<part name="C1" library="SparkFun" deviceset="CAP_POL" device="7343" value="220uF"/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
@@ -15939,12 +15939,12 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="BAROMETER" library="SparkFun" deviceset="M07" device="LONGPADS"/>
 <part name="COMPASS" library="balloonshield" deviceset="COMPASS" device=""/>
 <part name="5V" library="supply1" deviceset="VCC" device=""/>
-<part name="SUPPLY4" library="supply2" deviceset="+9V" device=""/>
-<part name="SUPPLY5" library="supply2" deviceset="+9V" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="5V1" library="supply1" deviceset="VCC" device=""/>
 <part name="P+1" library="supply1" deviceset="V+" device=""/>
 <part name="R6" library="rcl" deviceset="R-US_" device="R1206" value="1k"/>
+<part name="5V2" library="supply1" deviceset="VCC" device=""/>
+<part name="5V3" library="supply1" deviceset="VCC" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -16036,12 +16036,12 @@ In this library the device names are the same as the pin names of the symbols, t
 <instance part="BAROMETER" gate="G$1" x="294.64" y="48.26" rot="R180"/>
 <instance part="COMPASS" gate="G$1" x="294.64" y="106.68"/>
 <instance part="5V" gate="VCC" x="137.16" y="160.02"/>
-<instance part="SUPPLY4" gate="G$1" x="271.78" y="53.34" rot="R90"/>
-<instance part="SUPPLY5" gate="G$1" x="264.16" y="116.84" rot="R90"/>
 <instance part="GND1" gate="1" x="281.94" y="25.4"/>
 <instance part="5V1" gate="VCC" x="139.7" y="25.4" rot="R180"/>
 <instance part="P+1" gate="1" x="132.08" y="101.6" rot="R180"/>
 <instance part="R6" gate="G$1" x="132.08" y="121.92" rot="R270"/>
+<instance part="5V2" gate="VCC" x="271.78" y="53.34" rot="R90"/>
+<instance part="5V3" gate="VCC" x="261.62" y="116.84" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -16239,16 +16239,6 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="294.64" y1="256.54" x2="294.64" y2="251.46" width="0.1524" layer="91"/>
 <wire x1="302.26" y1="256.54" x2="294.64" y2="256.54" width="0.1524" layer="91"/>
 <junction x="294.64" y="256.54"/>
-</segment>
-<segment>
-<pinref part="SUPPLY4" gate="G$1" pin="+9V"/>
-<wire x1="274.32" y1="53.34" x2="289.56" y2="53.34" width="0.1524" layer="91"/>
-<pinref part="BAROMETER" gate="G$1" pin="1"/>
-</segment>
-<segment>
-<pinref part="SUPPLY5" gate="G$1" pin="+9V"/>
-<wire x1="266.7" y1="116.84" x2="284.48" y2="116.84" width="0.1524" layer="91"/>
-<pinref part="COMPASS" gate="G$1" pin="VIN"/>
 </segment>
 </net>
 <net name="N$38" class="0">
@@ -16527,6 +16517,8 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="111.76" y1="38.1" x2="111.76" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="30.48" x2="119.38" y2="30.48" width="0.1524" layer="91"/>
 <junction x="119.38" y="30.48"/>
+<label x="271.78" y="55.88" size="1.778" layer="95" rot="R180"/>
+<label x="261.62" y="119.38" size="1.778" layer="95" rot="R180"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -16535,6 +16527,18 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="160.02" y1="149.86" x2="132.08" y2="149.86" width="0.1524" layer="91"/>
 <wire x1="132.08" y1="149.86" x2="132.08" y2="127" width="0.1524" layer="91"/>
 <pinref part="R6" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="VCC" class="0">
+<segment>
+<wire x1="274.32" y1="53.34" x2="289.56" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="BAROMETER" gate="G$1" pin="1"/>
+<pinref part="5V2" gate="VCC" pin="VCC"/>
+</segment>
+<segment>
+<wire x1="264.16" y1="116.84" x2="284.48" y2="116.84" width="0.1524" layer="91"/>
+<pinref part="COMPASS" gate="G$1" pin="VIN"/>
+<pinref part="5V3" gate="VCC" pin="VCC"/>
 </segment>
 </net>
 </nets>
