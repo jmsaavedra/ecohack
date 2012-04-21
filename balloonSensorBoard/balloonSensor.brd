@@ -3453,10 +3453,10 @@ design rules under a new name.</description>
 <element name="+9V2" library="rcl" package="R1206" value="900 ohm" x="17.78" y="15.24" rot="R180"/>
 <element name="NO2" library="ricardo" package="SR-4" value="E2V NO2" x="55.245" y="29.845" rot="R90"/>
 <element name="R5" library="rcl" package="R1206" value="220k" x="57.785" y="22.225" rot="R270"/>
-<element name="R7" library="rcl" package="R1206" value="34 ohm" x="52.07" y="22.225" rot="R270"/>
+<element name="R7" library="rcl" package="R1206" value="120 ohm" x="52.07" y="22.225" rot="R270"/>
 <element name="O3" library="ricardo" package="SR-4" value="E2V Ozone" x="75.565" y="29.845" rot="R90"/>
 <element name="R30" library="rcl" package="R1206" value="220k" x="78.105" y="22.225" rot="R270"/>
-<element name="R31" library="rcl" package="R1206" value="60 ohm" x="73.025" y="22.225" rot="R270"/>
+<element name="R31" library="rcl" package="R1206" value="80 ohm" x="73.025" y="22.225" rot="R270"/>
 <element name="JP23" library="SparkFun" package="SCREWTERMINAL-5MM-2" value="Screw Terminal" x="11.43" y="4.445"/>
 <element name="R1" library="rcl" package="R1206" value="10k" x="61.595" y="45.72" rot="R180"/>
 <element name="U1" library="SparkFun" package="ARDUINO_MEGA-PRO-3.3V" value="ARDUINO-MEGAPRO" x="1.27" y="0"/>

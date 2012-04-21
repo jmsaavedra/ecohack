@@ -15889,14 +15889,14 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="P+5" library="supply1" deviceset="V+" device=""/>
 <part name="R5" library="rcl" deviceset="R-US_" device="R1206" value="220k"/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
-<part name="R7" library="rcl" deviceset="R-US_" device="R1206" value="34 ohm"/>
+<part name="R7" library="rcl" deviceset="R-US_" device="R1206" value="120 ohm"/>
 <part name="P+6" library="supply1" deviceset="V+" device=""/>
 <part name="O3" library="ricardo" deviceset="E2V" device="" value="E2V Ozone"/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
 <part name="P+11" library="supply1" deviceset="V+" device=""/>
 <part name="R30" library="rcl" deviceset="R-US_" device="R1206" value="220k"/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
-<part name="R31" library="rcl" deviceset="R-US_" device="R1206" value="60 ohm"/>
+<part name="R31" library="rcl" deviceset="R-US_" device="R1206" value="80 ohm"/>
 <part name="P+12" library="supply1" deviceset="V+" device=""/>
 <part name="SUPPLY16" library="supply2" deviceset="+9V" device=""/>
 <part name="GND81" library="supply1" deviceset="GND" device=""/>
