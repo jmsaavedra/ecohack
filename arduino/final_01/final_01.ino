@@ -34,27 +34,39 @@ void setup() {
   compass.enableDefault();
   dustInit();
   lsmInit();
+  
+  sendHeader();
 }
 
 void loop() {
+
+  analogReference(DEFAULT); //5v analogRef
+  fixARef();
 
   bmpAltitude = getBmpAltitude();
   bmpPressure = getBmpPressure();
   bmpTemp = getBmpTemp();
   heading = getLsmHeading();
-  dhtTemp = dht.readTemperature();
-  dhtHumidity = dht.readHumidity();
+  dhtTemp = getDhtTemp();
+  dhtHumidity = getDhtHumidity();
   sharpDust = getSharpDust();
+
+  analogReference(DEFAULT); //this should be set to EXTERNAL (???) so it's at 1.8v
+  fixARef();
+
   COval = getCO();
   O3val = getO3();
   NO2val = getNO2();
   VOCval = getVOC();
+
+  sendData();
+  Serial.println("------------------------------");
   
-
-  Serial1.println();
-
   delay(2000);
 }
+
+
+
 
 
 

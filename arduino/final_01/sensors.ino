@@ -2,37 +2,68 @@
 
 //----------------------- CO ------------------------
 int getCO(){
-  
-  
+  int val;
+  val = analogRead(A1);
+  Serial.print("CO: ");
+  Serial.println(val);
+  return val;
 }
 
 //----------------------- O3 ------------------------
 int getO3(){
-  
-  
+  int val;
+  val = analogRead(A3);
+  Serial.print("O3: ");
+  Serial.println(val);
+  return val;
 }
+
 //----------------------- NO2 ------------------------
 int getNO2(){
-  
-  
+  int val;
+  val = analogRead(A0);
+  Serial.print("NO2: ");
+  Serial.println(val);
+  return val;
 }
+
 //----------------------- VOC ------------------------
 int getVOC(){
-  
-  
+  int val;
+  val = analogRead(A4);
+  Serial.print("VOC: ");
+  Serial.println(val);
+  return val;
+}
+
+//----------------------- DHT22 ------------------------
+float getDhtTemp(){
+  float val;
+  val = dht.readTemperature();
+  Serial.print("dhtTemp: ");
+  Serial.println(val);
+  return val;
+}
+
+float getDhtHumidity(){
+  float val;
+  val = dht.readHumidity();
+  Serial.print("dhtHumidity: ");
+  Serial.println(val);
+  return val;
 }
 
 //----------------------- sharpDust ------------------------
 //analogPin A5
 //led connected to D12;
 
-int dDustPin=5;
-int dustVal=0;
+int dDustPin = A5;
+int dustVal = 0;
 
-int dLedPower=12;
-int dDelayTime=280;
-int dDelayTime2=40;
-float dOffTime=9680;
+int dLedPower = 12;
+int dDelayTime = 280;
+int dDelayTime2 = 40;
+float dOffTime = 9680;
 
 void dustInit(){
   pinMode(dLedPower,OUTPUT);
@@ -40,19 +71,22 @@ void dustInit(){
 }
 
 float getSharpDust(){
-   // ledPower is any digital pin on the arduino connected to Pin 3 on the sensor
+  // ledPower is any digital pin on the arduino connected to Pin 3 on the sensor
   digitalWrite(dLedPower,LOW); // power on the LED
   delayMicroseconds(dDelayTime);
   dustVal=analogRead(dDustPin); // read the dust value via pin 5 on the sensor
   delayMicroseconds(dDelayTime2);
   digitalWrite(dLedPower,HIGH); // turn the LED off
   delayMicroseconds(dOffTime);
+
+  Serial.print("sharpDust: ");
+  Serial.println(dustVal);
   return dustVal;
 }
 
 //----------------------- LSM303 ------------------------
 void lsmInit(){
-  
+
   // Calibration values. Use the Calibrate example program to get the values for
   // your compass.
   // M min X: -663 Y: -474 Z: -538 M max X: 339 Y: 442 Z: 322
@@ -70,6 +104,7 @@ int getLsmHeading(){
   compass.read();
   //heading = compass.heading((LSM303::vector){ 0,-1,0  } );
   heading = compass.heading();
+  Serial.print("heading: ");
   Serial.println(heading);
   return heading; 
 }
@@ -109,6 +144,18 @@ float getBmpTemp(){
 }
 
 //--------------------------------------------------------
+
+void fixARef(){
+  //this is for regulating the AREF change
+  //we have to do this because of the "Note" here:
+  //http://arduino.cc/en/Reference/AnalogReference?from=Reference.AREF
+  for(int i=0; i<10; i++){
+    int temp;
+    temp = analogRead(int(i/2)); 
+    delay(10);
+  }
+}
+
 
 
 
