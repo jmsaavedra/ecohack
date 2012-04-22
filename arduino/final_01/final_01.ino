@@ -19,9 +19,14 @@ float dhtTemp = 0.0f;
 float dhtHumidity = 0.0f;
 float sharpDust = 0.0f;
 int heading = 0;
+int COval = 0;
+int O3val = 0;
+int NO2val = 0;
+int VOCval = 0;
 
 void setup() {
   Serial.begin(38400);
+  Serial1.begin(38400);
   Wire.begin();
   bmp.begin();  
   dht.begin();
@@ -29,7 +34,6 @@ void setup() {
   compass.enableDefault();
   dustInit();
   lsmInit();
-
 }
 
 void loop() {
@@ -40,10 +44,18 @@ void loop() {
   heading = getLsmHeading();
   dhtTemp = dht.readTemperature();
   dhtHumidity = dht.readHumidity();
-sharpDust = getSharpDust();  
+  sharpDust = getSharpDust();
+  COval = getCO();
+  O3val = getO3();
+  NO2val = getNO2();
+  VOCval = getVOC();
+  
+
+  Serial1.println();
 
   delay(2000);
 }
+
 
 
 
